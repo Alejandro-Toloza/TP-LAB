@@ -1,12 +1,13 @@
 package org.store.model;
 
 
-import org.store.impl.productosComestibles;
+import org.store.impl.ProductosComestibles;
+import org.store.impl.ProductosConDescuento;
 
 import java.time.LocalDate;
 
 
-public class Productos extends Tienda implements productosComestibles {
+public class Productos extends Tienda implements ProductosComestibles, ProductosConDescuento {
 
     private static long productId;
     private String codigo;
@@ -16,20 +17,23 @@ public class Productos extends Tienda implements productosComestibles {
     private double costUnit;
 
 
-    public String calorias;
-    public LocalDate fecha;
-    public double descuento;
+    private String calorias;
+    private LocalDate fecha;
+    private double descuento;
+
 
 
     public Productos() {
 
     }
 
+
+
     @Override
-    public void calcular(String cal, LocalDate fec) {
+    public void calcularFechaYvencimiento(String cal, LocalDate fec) {
         this.calorias = cal;
         this.fecha = fec;
-        System.out.println("Fecha Vencimiento: "+ fecha + "Calorias: "+ calorias);
+        System.out.println("Fecha Vencimiento: "+ this.fecha + "Calorias: "+ this.calorias);
     }
 
     @Override
@@ -50,6 +54,11 @@ public class Productos extends Tienda implements productosComestibles {
         return descuento;
     }
 
+
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
 
 
     public String getCodigo() {
