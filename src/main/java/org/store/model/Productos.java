@@ -43,6 +43,10 @@ public class Productos extends Tienda implements ProductosComestibles, Productos
         return precioDescuento;
     }
 
+    public double calcularTotal(int cantidad) {
+        return priceUnit * cantidad;
+    }
+
     @Override
     public void setDescuento(double descuento) {
         this.descuento = descuento;

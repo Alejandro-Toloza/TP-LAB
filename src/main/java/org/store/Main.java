@@ -3,14 +3,21 @@ package org.store;
 import org.store.model.Tienda;
 import org.store.model.productos.Bebidas;
 import org.store.model.productos.Envasados;
+import org.store.model.productos.Venta;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
 
         // SALDO:
-        Tienda.setCaja(700);
+        Tienda.setCaja(2000);
+
+        // STOCK:
+        Tienda.setStockProductos(6);
+
+
         System.out.println("$$$");
         System.out.println("Saldo en caja: "+Tienda.getCaja());
         //BEBIDAS:
@@ -71,6 +78,16 @@ public class Main {
 
         coca.calcularFechaYvencimiento("17", LocalDate.of(2025,10,11));
 
+        // Crear una venta
+        Venta venta = new Venta(1, new Date());
 
+        // Agregar productos a la venta
+        venta.agregarProducto(coca, 2);
+
+
+        // Mostrar la venta
+        venta.mostrarVenta();
+
+        System.out.println("Saldo en caja: "+Tienda.getCaja());
     }
 }

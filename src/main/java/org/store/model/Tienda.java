@@ -31,9 +31,8 @@ public abstract class Tienda {
 
         }else {
             System.out.println("Saldo insuficiente");
-            System.out.println("El producto no pudo ser agregado.");
+            System.out.println("Porducto no agregado");
         }
-
     }
 
     public static double obtenerPrecio(String nombre) {
@@ -53,6 +52,13 @@ public abstract class Tienda {
         return stockProductos;
     }
 
+    public static void setStockProductos(int stockProductos) {
+        Tienda.stockProductos = stockProductos;
+    }
+
+    public static void setInventario(Map<String, Double> inventario) {
+        Tienda.inventario = inventario;
+    }
 
     public static double getCaja() {
         return caja;
